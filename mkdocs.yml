@@ -1,0 +1,12 @@
+site_name: My Docs
+
+nav:
+  - Home: index.md
+  - Home2: other.md
+
+plugins:
+- macros
+
+#extra_javascript:
+# - papaparse.min.js
+# - qa.js
