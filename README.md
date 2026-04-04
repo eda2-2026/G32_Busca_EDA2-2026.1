@@ -1,6 +1,6 @@
 # Trabalho 1 de EDA 2 - Busca
 
-Coloco algumas anotações minhas de estudo em um MkDocs público e tenho a vontade de adicionar perguntas e respostas (QAs) de concursos. Julguei esta como uma ótima oportunidade de aplicar um algorítmo de busca. A ideia é buscar e extrair, para cada página, QAs armazenadas no respositório e por fim imprimí-las nas páginas.
+Coloco algumas anotações minhas de estudo em um [MkDocs público](https://github.com/Raphides/cybersecurity) e tenho a vontade de adicionar perguntas e respostas (QAs) de concursos. Julguei esta como uma ótima oportunidade de aplicar um algorítmo de busca. A ideia é buscar e extrair, para cada página, QAs armazenadas no respositório e por fim imprimí-las nas páginas.
 
 Esse projeto portanto serve como uma Prova de Conceito (PoC). A ideia não é encher de páginas reais, inserir uma impressão satisfatória na página e nem lotar a coleção de QAs. A intenção é só uma:
 
@@ -25,6 +25,6 @@ Logo, utiliza-se a estratégia de **Busca Sequencial Indexada** para fazer um fi
 * Instale as bibliotecas do `requirements.txt`
 * Execute na pasta raiz do projeto:
 
-"""bash
+```bash
 mkdocs serve
-"""
+```
