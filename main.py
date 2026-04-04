@@ -19,7 +19,7 @@ for qa_i in range(2, len(qa_list)):
 
 print(qa_index_table)
 
-# Sequencial Search with Sentry/Sentinel in Index Table
+# Sequencial Search with Sentry/Sentinel with "move-to-front" reverse method in Index Table
 def qa_index_table_sequencial_search(category):
     # Sentry
     qa_index_table.append([category, -1])
@@ -33,8 +33,12 @@ def qa_index_table_sequencial_search(category):
     if counter == len(qa_index_table)-1:
         return qa_index_table.pop()
     else:
+        # "move-to-back" as no category should be searched 2 times.
         qa_index_table.pop()
-        return qa_index_table[counter]
+        result = qa_index_table[counter].copy()
+        qa_index_table[counter] = qa_index_table[-1].copy()
+        qa_index_table[-1] = result
+        return qa_index_table[-1]
 
     # Old sequencial search
     #
@@ -56,9 +60,13 @@ def qa_filter(category):
     return result
 
 print(qa_filter("Oauth2"))
+print(qa_index_table)
 print(qa_filter("Aprendizado de Máquina"))
+print(qa_index_table)
 print(qa_filter("Arquitetura de Inteligência de Negócio"))
+print(qa_index_table)
 print(qa_filter("Outro"))
+print(qa_index_table)
 
 def qa_format(qa_selected):
     # Format Questions and Answers Here
