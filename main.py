@@ -20,8 +20,15 @@ for qa_i in range(2, len(qa_list)):
 print(qa_index_table)
 
 def qa_filter(category):
-    # Search code here
-    return qa_list
+    result = []
+    for i in range(qa_index_table[category], len(qa_list)):
+        if qa_list[i][0] != category:
+            break
+        result.append(qa_list[i])
+    return result
+print(qa_filter("Oauth2"))
+print(qa_filter("Aprendizado de Máquina"))
+print(qa_filter("Arquitetura de Inteligência de Negócio"))
 
 def qa_format(qa_selected):
     # Format Questions and Answers Here
