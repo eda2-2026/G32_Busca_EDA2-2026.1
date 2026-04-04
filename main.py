@@ -19,12 +19,29 @@ for qa_i in range(2, len(qa_list)):
 
 print(qa_index_table)
 
-# Sequencial Search in Index Table
+# Sequencial Search with Sentry/Sentinel in Index Table
 def qa_index_table_sequencial_search(category):
-    for qa_index_table_item in qa_index_table:
-        if qa_index_table_item[0] == category:
-            return qa_index_table_item
-    return [category, -1]
+    # Sentry
+    qa_index_table.append([category, -1])
+    
+    counter = 0
+    while(True):
+        if qa_index_table[counter][0] == category:
+            break
+        counter += 1
+
+    if counter == len(qa_index_table)-1:
+        return qa_index_table.pop()
+    else:
+        qa_index_table.pop()
+        return qa_index_table[counter]
+
+    # Old sequencial search
+    #
+    # for qa_index_table_item in qa_index_table:
+    #     if qa_index_table_item[0] == category:
+    #         return qa_index_table_item
+    # return [category, -1]
 
 # Filter questions by using Index Table.
 def qa_filter(category):
