@@ -1,5 +1,6 @@
 import csv
 
+move_to_back_i = 0
 qa_list = None
 with open("./qa.csv", "rt") as qa_csv:
     qa_list = list(csv.reader(qa_csv, dialect="excel"))
@@ -21,6 +22,7 @@ print(qa_index_table)
 
 # Sequencial Search with Sentry/Sentinel with "move-to-front" reverse method in Index Table
 def qa_index_table_sequencial_search(category):
+    global move_to_back_i
     # Sentry
     qa_index_table.append([category, -1])
     
@@ -36,9 +38,10 @@ def qa_index_table_sequencial_search(category):
         # "move-to-back" as no category should be searched 2 times.
         qa_index_table.pop()
         result = qa_index_table[counter].copy()
-        qa_index_table[counter] = qa_index_table[-1].copy()
-        qa_index_table[-1] = result
-        return qa_index_table[-1]
+        qa_index_table[counter] = qa_index_table[move_to_back_i-1].copy()
+        qa_index_table[move_to_back_i-1] = result
+        move_to_back_i = -1* ((abs(move_to_back_i) + 1) % len(qa_index_table))
+        return result
 
     # Old sequencial search
     #
@@ -70,11 +73,11 @@ print(qa_index_table)
 
 def qa_format(qa_selected):
     # Format Questions and Answers Here
-    return "\n".join([", ".join(i) for i in qa_selected])
+    return "<br>".join([", ".join(i) for i in qa_selected])
 
 def on_post_page_macros(env):
     print(env.page.title)
-    qa_filtered = qa_filter(category)
+    qa_filtered = qa_filter(env.page.title)
     env.markdown += qa_format(qa_filtered)
 
 

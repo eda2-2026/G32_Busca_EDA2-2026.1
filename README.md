@@ -6,17 +6,30 @@ Esse projeto portanto serve como uma Prova de Conceito (PoC). A ideia não é en
 
 * Buscar QAs para cada página.
 
+É garantido que todas as questões de uma mesma categoria estarão agrupadas no CSV.
+
 Para isso, utiliza-se a seguinte estratégia:
 
 1. Leitura do CSV.
-2. Criação de um Índice por categorias
+2. Criação de uma tabela de índices por categorias
 3. Para cada página (correspondente a uma categoria):
-    1. Acessar índice da categoria
-    2. Inserir todas as questões da categoria.
+    1. Busca categoria na tabela de índice.
+    2. Acessa a lista resultante do CSV pela tabela de índice.
+    3. Inserir todas as questões da categoria até achar uma questão que não seja da categoria ou o EOF.
 
 Logo, utiliza-se a estratégia de **Busca Sequencial Indexada** para fazer um filtro mais veloz.
 
-É garantido que todas as questões de uma mesma categoria estarão juntas no CSV.
+Esperam-se uma quantidade considerável de categorias, logo, dentro da tabela de índices, utiliza-se a **Busca Sequencial com Sentinela com "Mover para Frente" invertido**. O "Mover Para Frente" invertido, nomeado por mim como "Mover Para Trás", é possível porque espera-se uma página por categoria, logo, após essa categoria ser acessada, as chances dela serem chamadas novamente são extremamente baixas. Dessa forma, podemos trocar uma categoria acessada com o último elemento. Mais uma adaptação em que se troca sempre pelo último que já não foi trocado, até chegar ao início da lista, onde volta para o final da lista. Exemplo
+
+* 1ª busca por uma categoria: troca com o 3º (último).
+* 1ª busca por uma categoria: troca com o 2º.
+* 1ª busca por uma categoria: troca com o 1º.
+* 1ª busca por uma categoria: troca com o 3º (último).
+* 1ª busca por uma categoria: troca com o 2º.
+* 1ª busca por uma categoria: troca com o 1º.
+
+...
+
 
 ## Como rodar localmente
 
