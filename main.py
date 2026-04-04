@@ -24,11 +24,15 @@ def qa_index_table_sequencial_search(category):
     for qa_index_table_item in qa_index_table:
         if qa_index_table_item[0] == category:
             return qa_index_table_item
+    return [category, -1]
 
 # Filter questions by using Index Table.
 def qa_filter(category):
     result = []
-    for i in range(qa_index_table_sequencial_search(category)[1], len(qa_list)):
+    start_i = qa_index_table_sequencial_search(category)[1]
+    if start_i == -1:
+        return result
+    for i in range(start_i, len(qa_list)):
         if qa_list[i][0] != category:
             break
         result.append(qa_list[i])
@@ -37,6 +41,7 @@ def qa_filter(category):
 print(qa_filter("Oauth2"))
 print(qa_filter("Aprendizado de Máquina"))
 print(qa_filter("Arquitetura de Inteligência de Negócio"))
+print(qa_filter("Outro"))
 
 def qa_format(qa_selected):
     # Format Questions and Answers Here
