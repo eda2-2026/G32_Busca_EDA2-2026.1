@@ -1,6 +1,6 @@
 # Trabalho 1 de EDA 2 - Busca
 
-[Vídeo explicando](https://youtu.be/BkVsTYFPsbs?si=xylZH6ynKZAGbuUL)
+[Vídeo explicando sobre o trabalho](https://youtu.be/BkVsTYFPsbs?si=xylZH6ynKZAGbuUL)
 
 Coloco algumas anotações minhas de estudo em um [MkDocs público](https://github.com/Raphides/cybersecurity) e tenho a vontade de adicionar perguntas e respostas (QAs) de concursos. Julguei esta como uma ótima oportunidade de aplicar um algorítmo de busca. A ideia é buscar e extrair, para cada página, QAs armazenadas no respositório e por fim imprimí-las nas páginas.
 
