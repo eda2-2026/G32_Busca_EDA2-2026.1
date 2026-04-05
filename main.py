@@ -4,7 +4,7 @@ move_to_back_i = 0
 qa_list = None
 with open("./qa.csv", "rt") as qa_csv:
     qa_list = list(csv.reader(qa_csv, dialect="excel"))
-    print("csv carregado")
+    #print("csv carregado")
 
 # Building index table 
 qa_categories = set()
@@ -18,7 +18,7 @@ for qa_i in range(2, len(qa_list)):
     if (set_size == -1):
         qa_index_table.append([qa_list[qa_i][0], qa_i])
 
-print(qa_index_table)
+#print(qa_index_table)
 
 # Sequencial Search with Sentry/Sentinel with "move-to-front" reverse method in Index Table
 def qa_index_table_sequencial_search(category):
@@ -62,21 +62,21 @@ def qa_filter(category):
         result.append(qa_list[i])
     return result
 
-print(qa_filter("Oauth2"))
-print(qa_index_table)
-print(qa_filter("Aprendizado de Máquina"))
-print(qa_index_table)
-print(qa_filter("Arquitetura de Inteligência de Negócio"))
-print(qa_index_table)
-print(qa_filter("Outro"))
-print(qa_index_table)
+#print(qa_filter("Oauth2"))
+#print(qa_index_table)
+#print(qa_filter("Aprendizado de Máquina"))
+#print(qa_index_table)
+#print(qa_filter("Arquitetura de Inteligência de Negócio"))
+#print(qa_index_table)
+#print(qa_filter("Outro"))
+#print(qa_index_table)
 
 def qa_format(qa_selected):
     # Format Questions and Answers Here
     return "<br>".join([", ".join(i) for i in qa_selected])
 
 def on_post_page_macros(env):
-    print(env.page.title)
+    #print(env.page.title)
     qa_filtered = qa_filter(env.page.title)
     env.markdown += qa_format(qa_filtered)
 
