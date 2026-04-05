@@ -1,5 +1,7 @@
 # Trabalho 1 de EDA 2 - Busca
 
+[Vídeo explicando](https://youtu.be/BkVsTYFPsbs?si=xylZH6ynKZAGbuUL)
+
 Coloco algumas anotações minhas de estudo em um [MkDocs público](https://github.com/Raphides/cybersecurity) e tenho a vontade de adicionar perguntas e respostas (QAs) de concursos. Julguei esta como uma ótima oportunidade de aplicar um algorítmo de busca. A ideia é buscar e extrair, para cada página, QAs armazenadas no respositório e por fim imprimí-las nas páginas.
 
 Esse projeto portanto serve como uma Prova de Conceito (PoC). A ideia não é encher de páginas reais, inserir uma impressão satisfatória na página e nem lotar a coleção de QAs. A intenção é só uma:
@@ -22,11 +24,11 @@ Logo, utiliza-se a estratégia de **Busca Sequencial Indexada** para fazer um fi
 Esperam-se uma quantidade considerável de categorias, logo, dentro da tabela de índices, utiliza-se a **Busca Sequencial com Sentinela com "Mover para Frente" invertido**. O "Mover Para Frente" invertido, nomeado por mim como "Mover Para Trás", é possível porque espera-se uma página por categoria, logo, após essa categoria ser acessada, as chances dela serem chamadas novamente são extremamente baixas. Dessa forma, podemos trocar uma categoria acessada com o último elemento. Mais uma adaptação em que se troca sempre pelo último que já não foi trocado, até chegar ao início da lista, onde volta para o final da lista. Exemplo
 
 * 1ª busca por uma categoria: troca com o 3º (último).
-* 1ª busca por uma categoria: troca com o 2º.
-* 1ª busca por uma categoria: troca com o 1º.
-* 1ª busca por uma categoria: troca com o 3º (último).
-* 1ª busca por uma categoria: troca com o 2º.
-* 1ª busca por uma categoria: troca com o 1º.
+* 2ª busca por uma categoria: troca com o 2º.
+* 3ª busca por uma categoria: troca com o 1º.
+* 4ª busca por uma categoria: troca com o 3º (último).
+* 5ª busca por uma categoria: troca com o 2º.
+* 6ª busca por uma categoria: troca com o 1º.
 
 ...
 

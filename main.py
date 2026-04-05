@@ -1,5 +1,6 @@
 import csv
 
+# Read CSV
 move_to_back_i = 0
 qa_list = None
 with open("./qa.csv", "rt") as qa_csv:
