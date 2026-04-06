@@ -43,3 +43,9 @@ Esperam-se uma quantidade considerável de categorias, logo, dentro da tabela de
 ```bash
 mkdocs serve
 ```
+
+## Autor
+
+|Autor|Matrícula|Github|
+|---|---|---|
+|Raphael Mendes da Silva|211039690|[Raphides](https://github.com/Raphides)|
